@@ -14,5 +14,4 @@ def canUnlockAll(boxes):
                 box_opened.append(value)
     if sum == len(boxes):
         return True
-    else:
-        return False
+    return False
