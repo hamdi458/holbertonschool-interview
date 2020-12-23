@@ -1,9 +1,9 @@
 #include "binary_trees.h"
 /**
- * heap_insert - inserts value
- * @root: is a pointer to the parent node of the node to create.
- * @value: the value of the new node
- * Return: return a pointer to the new node, or NULL on failure
+ * heap_insert -  inserts a value into a Max Binary Heap:
+ * @root: is a double pointer to the root node of the Heap
+ * @value: is the value store in the node to be inserted
+ * Return: pointer to the new node, or NULL on failure
 */
 heap_t *heap_insert(heap_t **root, int value)
 {
@@ -15,7 +15,5 @@ return (NULL);
 }
 node->n = value;
 node->parent = *root;
-node->right = NULL;
-node->left = NULL;
 return (node);
 }
