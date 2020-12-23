@@ -1,4 +1,6 @@
 #include "binary_trees.h"
+#include <stdlib.h>
+
 /**
  * binary_tree_node - function that creates a binary tree
  * @parent: pointer
@@ -14,9 +16,6 @@ if (!node)
 return (NULL);
 node->left = NULL;
 node->right = NULL;
-if (!parent)
-new->parent = NULL;
-else
 node->parent = parent;
 node->n = value;
 return (node);
