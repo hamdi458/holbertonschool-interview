@@ -11,4 +11,4 @@ def minOperations(n):
                 max_div = i
         sum_op += n / max_div
         n = max_div
-    return round(sum_op)
+    return int(round(sum_op))
