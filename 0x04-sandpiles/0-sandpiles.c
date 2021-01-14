@@ -1,7 +1,7 @@
-#include <stdlib.h>
-#include <stdio.h>
-
 #include "sandpiles.h"
+
+
+
 
 
 /**
@@ -18,7 +18,7 @@ void add(int grid1[3][3], int grid2[3][3])
         j = 0;
         while(j < 3)
         {
-            grid1[i][j] += grid2[i][j];
+            grid1[i][j] = grid1[i][j] + grid2[i][j];
             j++;
         }
     }
@@ -88,15 +88,15 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 			{
 				if (grid1[i][j] > 3)
 				{
-					grid[i][j] -= 4;
+					grid[i][j] = grid[i][j] - 4;
 					if (j - 1 < 3 && j - 1 >= 0)
-						grid[i][j - 1] += 1;
+						grid[i][j - 1] = grid[i][j - 1] + 1;
 					if (j + 1 < 3 && j + 1 >= 0)
-						grid[i][j + 1] += 1;
+						grid[i][j + 1] = grid[i][j + 1] + 1;
 					if (i - 1 < 3 && i - 1 >= 0)
-						grid[i - 1][j] += 1;
+						grid[i - 1][j] = grid[i - 1][j] + 1;
 					if (i + 1 < 3 && i + 1 >= 0)
-						grid[i + 1][j] += 1;
+						grid[i + 1][j] = grid[i + 1][j] + 1;
 				}
 			}
 		}
