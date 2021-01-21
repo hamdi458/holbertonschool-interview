@@ -9,18 +9,18 @@
  */
 int is_palindrome(listint_t **head)
 {
-int d = 0, s = 0, q = 0, tab[2069];
+int d = 0, s = 0, q = 0, t[3000];
 
 s = s - 1;
 q = q + 1;
 while (*head)
 {
 s++;
-tab[s] = (*head)->n;
+t[s] = (*head)->n;
 *head = (*head)->next;
 }
 while (--s > ++d && q == 1)
-if (tab[d] != tab[s])
+if (t[d] != t[s])
 q = 0;
 return (q);
 }
