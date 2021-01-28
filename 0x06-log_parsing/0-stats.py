@@ -19,22 +19,22 @@ try:
     for l in sys.stdin:
         w = l.split()
         if len(w) >= 2:
-            if w[-2] in status.keys():
-                status[w[-2]] += 1
+            if w[-2] in my_dict.keys():
+                my_dict[w[-2]] += 1
             fileSize += int(w[-1])
             i += 1
             if not i % 10:
                 print("File size: {:d}".format(fileSize))
-                for key in sorted(status.keys()):
-                    if status[key] != 0:
-                        print("{}: {:d}".format(key, status[key]))
+                for key in sorted(my_dict.keys()):
+                    if my_dict[key] != 0:
+                        print("{}: {:d}".format(key, my_dict[key]))
     print("File size: {:d}".format(fileSize))
-    for key in sorted(status.keys()):
-        if status[key] != 0:
-            print("{}: {:d}".format(key, status[key]))
+    for key in sorted(my_dict.keys()):
+        if my_dict[key] != 0:
+            print("{}: {:d}".format(key, my_dict[key]))
 except KeyboardInterrupt:
     print("File size: {:d}".format(fileSize))
-    for key in sorted(status.keys()):
-        if status[key] != 0:
-            print("{}: {:d}".format(key, status[key]))
+    for key in sorted(my_dict.keys()):
+        if my_dict[key] != 0:
+            print("{}: {:d}".format(key, my_dict[key]))
     raise
