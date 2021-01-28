@@ -5,7 +5,7 @@ import sys
 
 try:
     i = 0
-    status = {
+    my_dict = {
         '200': 0,
         '301': 0,
         '400': 0,
@@ -16,12 +16,12 @@ try:
         '500': 0
     }
     fileSize = 0
-    for line in sys.stdin:
-        words = line.split()
-        if len(words) >= 2:
-            if words[-2] in status.keys():
-                status[words[-2]] += 1
-            fileSize += int(words[-1])
+    for l in sys.stdin:
+        w = l.split()
+        if len(w) >= 2:
+            if w[-2] in status.keys():
+                status[w[-2]] += 1
+            fileSize += int(w[-1])
             i += 1
             if not i % 10:
                 print("File size: {:d}".format(fileSize))
