@@ -1,72 +1,72 @@
 #include "binary_trees.h"
 
 /**
-* sorted_array_to_avl -function that builds an AVL tree from an array
+* sorted_array_to_avl - fonction de creation darbre
 * @array: int
-* @size: int
-* Return: pointer to the root node of the created AVL tree, or NULL
+* @size: size_t
+* Return: int(mean true)
 */
 
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-avl_t *tree;
+	avl_t *arbre;
 
-if (!array || size <= 0)
-return (NULL);
+	if (array == NULL || size <= 0)
+		return (NULL);
 
-tree = add_noeud(0, NULL, size - 1, array);
-return (tree);
+	arbre = ajout_noeud(0, NULL, size - 1, array);
+	return (arbre);
 }
 
 
 /**
-* add_noeud - create tree
+* ajout_noeud - creation darbre
 * @array: int
-* @debut: int
-* @fin: int
-* @parent: int
+* @debut: size_t
+* @fin: size_t
+* @parent: pointeur
 * Return: pointeur(mean true)
 */
-avl_t *add_noeud(size_t d, avl_t *parent, size_t f, int *array)
+avl_t *ajout_noeud(size_t debut, avl_t *parent, size_t fin, int *array)
 {
-size_t m;
-avl_t *tree;
+	size_t milieu;
+	avl_t *arbre;
 
-if (d > f)
-return (NULL);
+	if (debut > fin)
+		return (NULL);
 
-m = (d + f) / 2;
-tree = new_noeud(parent, array[m]);
-if (!tree)
-return (NULL);
+	milieu = (debut + fin) / 2;
+	arbre = nvx_noeud(parent, array[milieu]);
+	if (arbre == NULL)
+		return (NULL);
 
-if (m != f)
-tree->right = add_noeud(m + 1, tree, f, array);
+	if (milieu != fin)
+		arbre->right = ajout_noeud(milieu + 1, arbre, fin, array);
 
-if (m != d)
-tree->left = add_noeud(d, tree, m - 1, array);
+	if (milieu != debut)
+		arbre->left = ajout_noeud(debut, arbre, milieu - 1, array);
 
-return (tree);
+	return (arbre);
 }
 
 /**
-* new_noeud - creation de nouveau noeud
+* nvx_noeud - creation de nouveau noeud
 * @parent: pointeur
 * @n: int
 * Return: noeud(mean true)
 */
-avl_t *new_noeud(avl_t *p, size_t n)
+avl_t *nvx_noeud(avl_t *parent, size_t n)
 {
-avl_t *new;
+	avl_t *nouveau;
 
-new = malloc(sizeof(avl_t));
+	nouveau = malloc(sizeof(avl_t));
 
-if (!new)
-return (NULL);
+	if (nouveau == NULL)
+		return (NULL);
 
-new->n = n;
-new->right = NULL;
-new->parent = p;
-new->left = NULL;
-return (new);
+	nouveau->n = n;
+	nouveau->right = NULL;
+	nouveau->parent = parent;
+	nouveau->left = NULL;
+	return (nouveau);
 }
