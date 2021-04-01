@@ -37,16 +37,16 @@ if (sctr->express->n == value)
 	sctr = sctr->express;
 	printf("Value checked at index [%lu] = [%d]\n", sctr->index, sctr->n);
 	}
-	tempsctr = sctr;
+	tmpsctr = sctr;
 	tempIndex = sctr->index;
 	while (sctr->next)
 		sctr = sctr->next;
 	printf(f, tempIndex, sctr->index);
-	while (tempsctr->next)
+	while (tmpsctr->next)
 	{
-		printf(verif, tempsctr->index, tempsctr->n);
-		tempsctr = tempsctr->next;
+		printf(verif, tmpsctr->index, tmpsctr->n);
+		tmpsctr = tmpsctr->next;
 		}
-	printf(verif, tempsctr->index, tempsctr->n);
+	printf(verif, tmpsctr->index, tmpsctr->n);
 	return (NULL);
 }
