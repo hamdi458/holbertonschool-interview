@@ -1,17 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "search.h"
-
 /**
- * linear_skip - Entry point
- * @list: head of skiplist
- * @value: value to search
- * Return: Always EXIT_SUCCESS
+ * linear_skip - fn
+ * @list: list
+ * @value: val
+ * Return: NULL
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
 
-if (!=list)
+if (list == NULL)
 return (NULL);
 skiplist_t *sctr = list, *tmpsctr = NULL;
 size_t tempIndex = 0;
@@ -29,7 +26,7 @@ if (sctr->express->n == value)
 	{
 		printf(verif, sctr->express->index, sctr->express->n);
 		printf(f, sctr->index, sctr->express->index);
-		while (!=sctr->next)
+		while (sctr->next)
 		{
 			printf("Value checked at index [%lu] = [%d]\n", sctr->index, sctr->n);
 			if (sctr->n == value)
@@ -42,10 +39,10 @@ if (sctr->express->n == value)
 	}
 	tempsctr = sctr;
 	tempIndex = sctr->index;
-	while (sctr->next != NULL)
+	while (sctr->next)
 		sctr = sctr->next;
 	printf(f, tempIndex, sctr->index);
-	while (tempsctr->next != NULL)
+	while (tempsctr->next)
 	{
 		printf(verif, tempsctr->index, tempsctr->n);
 		tempsctr = tempsctr->next;
