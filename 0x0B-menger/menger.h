@@ -1,4 +1,3 @@
- 
 #ifndef MENGER_H_
 #define MENGER_H_
 
