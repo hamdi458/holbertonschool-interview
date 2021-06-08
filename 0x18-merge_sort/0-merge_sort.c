@@ -47,14 +47,12 @@ j++;
 }
 k++;
 }
-
 while (i < li)
 {
 array[k] = left[i];
 i++;
 k++;
 }
-
 while (j < ri)
 {
 array[k] = right[j];
@@ -76,16 +74,12 @@ size_t m, i;
 int right[300], left[300];
 
 m = size / 2;
-
 if (size < 2 || array == NULL)
 return;
-
 for (i = 0; i < m; i++)
 left[i] = array[i];
-
 for (i = m;  i < size; i++)
 right[i - m] = array[i];
-
 merge_sort(left, m);
 merge_sort(right, size - m);
 merge(array, right, left, size);
