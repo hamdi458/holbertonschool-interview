@@ -18,12 +18,12 @@ return (s);
 }
 
 /**
- * sort_matrix - sort by one digit in a matrix
- * @array: array to sort
- * @tmp: matrix to put the sorted numbers
- * @size: size of arrray
- * @level: digit to apply sortting
- * Return: 0 if the digit is the mostright digit, otherwise 1
+ * sort_matrix - sort matrix
+ * @array: the array to sort
+ * @tmp: the matrix
+ * @size: the size of arrray
+ * @level: the digit
+ * Return: 0 otherwise 1
  */
 
 
@@ -62,12 +62,12 @@ return (1);
 }
 
 /**
- * gridfree - Function that frees a matrix
- * @grid: double poiter to free
- * Return: Nothing (void)
+ * free - Function
+ * @grid: the grid
+ * Return: 0
  */
 
-void gridfree(int **grid)
+void fre(int **grid)
 {
 int i;
 
@@ -77,24 +77,24 @@ free(grid);
 }
 
 /**
- * radix_sort - Function that sorts an array of integers in ascending order
- * using the Radix sort algorithm
- * @array: array to sort
- * @size: size of the array
- * Return: Nothing (void)
+ * radix_sort - function
+ * @array: the array to sort
+ * @size: the size of the array
+ * Return: 0
  */
 
 void radix_sort(int *array, size_t size)
 {
 int **tmp, aux = 1, level = 1;
 size_t i;
-
-if (!array || size < 2)
+if (array == NULL || size < 2)
 return;
 tmp = malloc(sizeof(int *) * 10);
 for (i = 0; i < 10; i++)
 tmp[i] = malloc(sizeof(int) * size);
 while (aux)
-aux = sorting_matrix(array, tmp, size, level++);
-gridfree(tmp);
+{
+aux = sort_matrix(array, tmp, size, level++);
+}
+fre(tmp);
 }
