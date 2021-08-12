@@ -17,9 +17,9 @@ return (0);
 pnt = *str && (*str == *pattern || *pattern == '.');
 star = *(pattern + 1) == '*';
 
-if (*str == NULL && star == NULL)
+if (!*str && star == 0)
 return (*pattern ? 0 : 1);
-else if (!pnt == NULL && star)
+else if (pnt == 1 && star == 1)
 return (regex_match(str + 1, pattern) || regex_match(str, pattern + 2));
 else if (pnt && !star)
 return (regex_match(str + 1, pattern + 1));
